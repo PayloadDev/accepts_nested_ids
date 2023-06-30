@@ -1,11 +1,12 @@
-shared_examples "a proper gentleman" do
+# frozen_string_literal: true
 
-  describe 'association_ids_attr' do
+shared_examples 'a proper gentleman' do # rubocop:disable Metrics/BlockLength
+  describe 'association_ids_attr' do # rubocop:disable Metrics/BlockLength
     it 'is defined' do
       expect(record.respond_to?(association_ids_attr)).to eq true
     end
 
-    describe 'data retrieval' do
+    describe 'data retrieval' do # rubocop:disable Metrics/BlockLength
       context 'when instance variable set' do
         before(:each) do
           record.send("#{association_ids_attr}=", [1])
@@ -56,7 +57,7 @@ shared_examples "a proper gentleman" do
     end
 
     it 'adds attr changes to changed_attributes' do
-      expect(record.changed_attributes.has_key?(association_ids_attr)).to eq true
+      expect(record.changed_attributes.key?(association_ids_attr)).to eq true
     end
   end
 
@@ -82,5 +83,4 @@ shared_examples "a proper gentleman" do
       end
     end
   end
-
 end
