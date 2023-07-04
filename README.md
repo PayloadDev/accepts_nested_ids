@@ -129,7 +129,7 @@ Requires Activemodel & Activerecord `6.1.1` or higher
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/uberllama/accepts_nested_ids.
+Bug reports and pull requests are welcome on GitHub at https://github.com/PayloadDev/accepts_nested_ids.
 
 
 ## License
