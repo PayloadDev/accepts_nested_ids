@@ -1,10 +1,12 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'accepts_nested_ids'
 require 'active_record'
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].sort.each { |f| require f }
 
-ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: ":memory:")
-ActiveRecord::Base.logger = Logger.new(STDOUT)
+ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:')
+ActiveRecord::Base.logger = Logger.new($stdout)
 
 ActiveRecord::Schema.define do
   create_table :companies do |t|
@@ -54,7 +56,7 @@ class Project < ActiveRecord::Base
   has_many :documents
   has_many :project_users
   has_many :included_users, through: :project_users, source: :user
-  accepts_nested_ids_for :documents, included_users: "User"
+  accepts_nested_ids_for :documents, included_users: 'User'
   attribute :document_ids
   attribute :included_user_ids
 end
